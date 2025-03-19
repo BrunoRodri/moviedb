@@ -1,0 +1,38 @@
+.home {
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.container {
+  width: 100vw;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-carrossel{
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: e;
+}
+
+.see-more {
+  display: flex;
+  justify-content: center;
+  width: 100px;
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.see-more:hover {
+  background-color: #0056b3;
+}

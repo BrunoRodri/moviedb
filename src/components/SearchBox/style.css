@@ -1,0 +1,42 @@
+.pesquisa {
+  width: 100vw;
+  height: 200px;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.search-box {
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box input {
+  padding-left: 20px;
+  width: 500px;
+  height: 60px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font-size: 1em;
+}
+
+.search-box button {
+  width: 100px;
+  height: 60px;
+  margin-left: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: absolute;
+  right: 1px;
+}
+
+.search-box button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,12 @@
+.movie-list-page {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; 
+  justify-content: flex-start; 
+}
