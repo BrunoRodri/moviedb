@@ -3,8 +3,8 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true, // Permite a importação de módulos CommonJS
-    "composite": true // Habilita a compilação incremental
+    "allowSyntheticDefaultImports": true, 
+    "composite": true 
   },
-  "include": ["vite.config.ts"] // Inclui apenas o arquivo de configuração do Vite
+  "include": ["vite.config.ts"] 
 }
