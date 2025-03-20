@@ -9,23 +9,37 @@ interface MovieListProps {
   category: string;
 }
 
+const movieFetchers = {
+  popular: getPopularMovies,
+  'now-playing': getNowPlayingMovies,
+  upcoming: getUpcomingMovies,
+  search: searchMovies,
+};
+
 export const MovieList = ({ category }: MovieListProps) => {
   const { query } = useParams();
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      let data: Movie[] = [];
-      if (category === 'popular') {
-        data = await getPopularMovies();
-      } else if (category === 'now-playing') {
-        data = await getNowPlayingMovies();
-      } else if (category === 'upcoming') {
-        data = await getUpcomingMovies();
-      } else if (category === 'search' && query) {
-        data = await searchMovies(query);
+      // Verifica se a categoria existe no mapeamento
+      const fetcher = movieFetchers[category as keyof typeof movieFetchers];
+
+      if (fetcher) {
+        try {
+          let data: Movie[];
+          if (category === 'search') {
+            // Se for uma busca, passa o query como argumento
+            data = await fetcher(query || '');
+          } else {
+            // Para outras categorias, chama a função sem argumentos
+            data = await (fetcher as () => Promise<Movie[]>)();
+          }
+          setMovies(data);
+        } catch (error) {
+          console.error('Erro ao buscar filmes:', error);
+        }
       }
-      setMovies(data);
     };
 
     fetchMovies();

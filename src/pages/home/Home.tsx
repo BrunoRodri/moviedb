@@ -44,9 +44,11 @@ export const Home = () => {
           navigation
           pagination={{ clickable: true }}
           breakpoints={{
-            320: { slidesPerView: 2 },
-            640: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            734: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+            1440: { slidesPerView: 5 },
           }}
         >
           {popularMovies.slice(0, 10).map((movie) => (
@@ -66,9 +68,11 @@ export const Home = () => {
           navigation
           pagination={{ clickable: true }}
           breakpoints={{
-            320: { slidesPerView: 2 },
-            640: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            734: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+            1440: { slidesPerView: 5 },
           }}
         >
           {nowPlayingMovies.slice(0, 10).map((movie) => (
@@ -88,9 +92,11 @@ export const Home = () => {
           navigation
           pagination={{ clickable: true }}
           breakpoints={{
-            320: { slidesPerView: 2 },
-            640: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            734: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+            1440: { slidesPerView: 5 },
           }}
         >
           {upcomingMovies.slice(0, 10).map((movie) => (
@@ -100,7 +106,7 @@ export const Home = () => {
           ))}
         </Swiper>
         <Link to="/upcoming" className="see-more">Ver mais</Link>
-        </div>
+      </div>
       </div>
     </div>
   );
