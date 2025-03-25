@@ -1,4 +1,4 @@
-import React from 'react';
+import { Navbar } from './components/Navbar/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/home/Home';
 import { MovieList } from './pages/movielist/MovieList';
@@ -7,6 +7,7 @@ import './App.css';
 function App() {
   return (
     <Router>
+      <Navbar /> {/* Adicionado aqui */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/popular" element={<MovieList category="popular" />} />

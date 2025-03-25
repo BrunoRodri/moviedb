@@ -29,8 +29,9 @@
   color: #666;
 }
 
-/* @media (max-width: 640px) {
+
+@media (max-width: 640px) {
   .movie-card {
     width: 120px;
   }
-} */
+}

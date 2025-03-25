@@ -4,12 +4,9 @@ import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { Carousel } from '../../components/Carousel/Carousel';
 import { getPopularMovies, getNowPlayingMovies, getUpcomingMovies } from '../../services/tmdb';
 import { Movie } from '../../types/Movie';
-import { Link } from 'react-router-dom';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Navigation, Pagination } from 'swiper/modules';
 import './style.css'
 
 export const Home = () => {
