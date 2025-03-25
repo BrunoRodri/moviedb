@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { MovieCard } from '../../components/MovieCard/MovieCard';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
+import { Carousel } from '../../components/Carousel/Carousel';
 import { getPopularMovies, getNowPlayingMovies, getUpcomingMovies } from '../../services/tmdb';
 import { Movie } from '../../types/Movie';
 import { Link } from 'react-router-dom';
@@ -18,9 +19,11 @@ export const Home = () => {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const popular = await getPopularMovies();
-      const nowPlaying = await getNowPlayingMovies();
-      const upcoming = await getUpcomingMovies();
+      const [popular, nowPlaying, upcoming] = await Promise.all([
+        getPopularMovies(),
+        getNowPlayingMovies(),
+        getUpcomingMovies(),
+      ]);
       setPopularMovies(popular);
       setNowPlayingMovies(nowPlaying);
       setUpcomingMovies(upcoming);
@@ -35,79 +38,24 @@ export const Home = () => {
         <SearchBox />
       </div>
       <div className="container">
-        <div className="movie-carrossel">
-        <h2>Filmes Populares</h2>
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={16}
-          slidesPerView={5}
-          navigation
-          pagination={{ clickable: true }}
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            734: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-            1440: { slidesPerView: 5 },
-          }}
-        >
-          {popularMovies.slice(0, 10).map((movie) => (
-            <SwiperSlide key={movie.id}>
-              <MovieCard movie={movie} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Link to="/popular" className="see-more">Ver mais</Link>
+      <Carousel 
+        movies={popularMovies} 
+        title="Filmes Populares"
+        linkTo="/popular" 
+      />
+
+      <Carousel 
+        movies={nowPlayingMovies} 
+        title="Em Cartaz"
+        linkTo="/now-playing" 
+      />
+
+      <Carousel 
+        movies={upcomingMovies} 
+        title="Em Breve"
+        linkTo="/upcoming"  
+      />
       </div>
-      <div className="movie-carrossel">
-        <h2>Em Cartaz</h2>
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={16}
-          slidesPerView={5}
-          navigation
-          pagination={{ clickable: true }}
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            734: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-            1440: { slidesPerView: 5 },
-          }}
-        >
-          {nowPlayingMovies.slice(0, 10).map((movie) => (
-            <SwiperSlide key={movie.id}>
-              <MovieCard movie={movie} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Link to="/now-playing" className="see-more">Ver mais</Link>
-      </div>
-      <div className="movie-carrossel">
-        <h2>Em Breve</h2>
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={16}
-          slidesPerView={5}
-          navigation
-          pagination={{ clickable: true }}
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            734: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-            1440: { slidesPerView: 5 },
-          }}
-        >
-          {upcomingMovies.slice(0, 10).map((movie) => (
-            <SwiperSlide key={movie.id}>
-              <MovieCard movie={movie} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Link to="/upcoming" className="see-more">Ver mais</Link>
-      </div>
-      </div>
-    </div>
+    </div>  
   );
 };
