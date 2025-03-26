@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { MovieCard } from '../../components/MovieCard/MovieCard';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { Carousel } from '../../components/Carousel/Carousel';
 import { getPopularMovies, getNowPlayingMovies, getUpcomingMovies } from '../../services/tmdb';

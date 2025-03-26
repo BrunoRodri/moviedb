@@ -27,8 +27,8 @@ export const Carousel = ({ movies, title, linkTo}: CarouselProps) => {
         breakpoints={{
           320: { slidesPerView: 1 },
           640: { slidesPerView: 2 },
-          734: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
+          734: { slidesPerView: 2 },
+          1000: { slidesPerView: 3 },
           1440: { slidesPerView: 5 },
         }}
       >

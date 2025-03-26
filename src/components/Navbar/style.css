@@ -1,13 +1,18 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 5rem;
   background-color: #0d1b2a;
   color: white;
+  padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .navbar-logo a {
@@ -15,6 +20,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 .navbar-logo a:hover {
@@ -25,14 +31,58 @@
   display: flex;
   gap: 2rem;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-links a {
   color: #E0E1DD;
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 500;
 }
 
 .navbar-links a:hover {
   color: #01b4e4;
+}
+
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #0d1b2a;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: right 0.3s ease;
+  }
+
+  .navbar-links.active {
+    right: 0;
+  }
+
+  .mobile-menu-button {
+    display: block;
+    z-index: 101;
+  }
+
+  .navbar-links a {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+  }
 }

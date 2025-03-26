@@ -4,10 +4,13 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #1B263B;
   color: white;
+  overflow-x: hidden;
 }
 
 html {
   width: 100vw;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
+
+
 
